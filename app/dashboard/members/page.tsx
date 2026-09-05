@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import Link from "next/link";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://ksitm-backend-api.onrender.com/api";
 
 export default function MembersPage() {
   const [members, setMembers] = useState([]);
