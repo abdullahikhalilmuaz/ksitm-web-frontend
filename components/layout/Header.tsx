@@ -1,0 +1,149 @@
+"use client";
+
+import { FaBell, FaUserCircle, FaChevronDown } from "react-icons/fa";
+
+interface HeaderProps {
+  userName: string;
+  userRole: string;
+}
+
+export default function Header({ userName, userRole }: HeaderProps) {
+  return (
+    <header className="header">
+      <div className="header-left">
+        <h1 className="page-title">Dashboard</h1>
+      </div>
+
+      <div className="header-right">
+        <button className="notification-btn">
+          <FaBell className="icon" />
+          <span className="badge">3</span>
+        </button>
+
+        <div className="user-menu">
+          <div className="user-avatar">
+            <FaUserCircle size={32} />
+          </div>
+          <div className="user-info">
+            <span className="user-name">{userName}</span>
+            <span className="user-role">{userRole}</span>
+          </div>
+          <FaChevronDown className="dropdown-icon" size={12} />
+        </div>
+      </div>
+
+      <style jsx>{`
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 32px;
+          background: white;
+          border-bottom: 1px solid #e5e7eb;
+          position: sticky;
+          top: 0;
+          z-index: 50;
+        }
+
+        .page-title {
+          font-size: 20px;
+          font-weight: 700;
+          color: #1a1a2e;
+          margin: 0;
+        }
+
+        .header-right {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .notification-btn {
+          position: relative;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 50%;
+          transition: background 0.2s;
+        }
+
+        .notification-btn:hover {
+          background: #f3f4f6;
+        }
+
+        .icon {
+          font-size: 20px;
+          color: #4b5563;
+        }
+
+        .badge {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          background: #ef4444;
+          color: white;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 2px 6px;
+          border-radius: 50%;
+          min-width: 18px;
+          text-align: center;
+        }
+
+        .user-menu {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+          padding: 6px 12px;
+          border-radius: 10px;
+          transition: background 0.2s;
+        }
+
+        .user-menu:hover {
+          background: #f3f4f6;
+        }
+
+        .user-avatar {
+          color: #4b2e83;
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .user-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: #1a1a2e;
+        }
+
+        .user-role {
+          font-size: 12px;
+          color: #6b7280;
+          text-transform: capitalize;
+        }
+
+        .dropdown-icon {
+          color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+          .header {
+            padding: 12px 16px;
+          }
+
+          .user-info {
+            display: none;
+          }
+
+          .page-title {
+            font-size: 16px;
+          }
+        }
+      `}</style>
+    </header>
+  );
+}
