@@ -34,6 +34,10 @@ export default function BookCopiesPage() {
   const [showQRModal, setShowQRModal] = useState(false);
   const [selectedAccession, setSelectedAccession] = useState("");
   const [qrUrl, setQrUrl] = useState("");
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_URL ||
+    "http://localhost:5000/api" ||
+    "https://ksitm-backend-api.onrender.com";
 
   // Fetch book and copies
   useEffect(() => {
