@@ -153,7 +153,7 @@ export default function BooksPage() {
                       <td className="text-center">{book.totalCopies}</td>
                       <td className="text-center">
                         <span
-                          className={`available-badge ${parseInt(book.availableCopies || "0") > 0 ? "available" : "unavailable"}`}
+                          className={`available-badge ${Number(book.availableCopies || 0) > 0 ? "available" : "unavailable"}`}
                         >
                           {book.availableCopies || 0}
                         </span>
